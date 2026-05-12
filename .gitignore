@@ -1,0 +1,5 @@
+.vscode
+.env
+.sixth
+node_modules
+backend

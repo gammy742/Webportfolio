@@ -1,0 +1,342 @@
+
+.container h1{
+    font-size: 24px;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 500;
+}
+.container h2{
+    font-size: 16px;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 400;
+    color: #950101;
+}
+.container span{
+    color: #6000A0;
+}
+
+.myInfoHome{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    margin-top: 30px;
+    
+}
+
+.img-container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 360px;
+    max-width: 768px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.img-container .large{
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px; 
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.overlay-bottom-left{
+    position: absolute;
+    background-color: #950101;
+    padding-left: 7px;
+    padding-top: 15px;
+    padding-right: 13px;
+    top: 250px;
+    margin-left: 40px;
+    z-index: 3;
+    border-radius: 9px;
+}
+.overlay-bottom-left .small1{
+    width: 76px;
+    height: 76px;
+    border-radius: 7px;
+    object-fit: cover;
+}
+
+.overlay-top-right{
+    position: absolute;
+    z-index: 4;
+    top: 10px;
+    right: 40px;
+    color: white;
+    display: flex;
+    background-color: #950101;
+    padding: 5px;
+    padding-right: 10px;
+    border-radius: 5px;
+    gap: 0.5em;
+}
+.overlay-top-right .small2{
+    height: 60px;
+    width: 60px;
+    border-radius: 3px;
+    object-fit: cover;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.text strong{
+    font-family: 'Prompt', sans-serif;
+    font-weight: 200;
+    font-size: 9px;
+}
+.text p{
+    font-family: 'Prompt', sans-serif;
+    font-weight: 200;
+    font-size: 7px;
+    color: #818181;
+}
+
+.overlays{
+    position: absolute;
+    top: 0%;
+    width:100%;
+    z-index: 2;
+}
+
+.imgCircle{
+    display: flex;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.circle{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.myPic{
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.myInfoHome p{
+    text-align: center;
+    font-size: 300;
+}
+
+.infoText{
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    .line{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+
+    .myInfoHome{
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-bottom: 40px;
+    }
+
+    .img-container{
+        width: 100%;
+        max-width: 900px;
+        height: 460px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .img-container .large{
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay-bottom-left{
+        padding-left: 5px;
+        padding-top: 20px;
+        padding-right: 14px;
+        padding-bottom: 5px;
+        top: 310px;
+        z-index: 3;
+        border-radius: 13px;
+        margin-left: 50px;
+    }
+    .overlay-bottom-left .small1{
+        width: 113px;
+        height: 104px;
+        border-radius: 7px;
+    }
+
+    .overlay-top-right{
+        margin-top: 340px;
+        right: 40px;
+        padding: 9px;
+        padding-right: 20px;
+        border-radius: 10px;
+        gap: 0.5em;
+    }
+    .overlay-top-right .small2{
+        height: 74px;
+        width: 74px;
+        border-radius: 3px;
+    }
+    .text strong{
+        font-size: 11px;
+    }
+    .text p{
+        font-size: 9px;
+    }
+
+    .infoText{
+        padding-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1em;
+        
+
+        .line{
+            display: flex ;
+            flex-direction: column;
+            align-items: center;
+
+            h1{
+                font-size: 36px;
+            }
+
+            h2{
+                font-size: 20px;
+            }
+            p{
+                font-size:19px;
+            }
+        }
+    }
+
+    .label{
+        display: block !important;
+        font-size: 25px;
+    }
+
+    .imgCircle{
+        width: 120px;
+        height: 120px;
+    }
+}
+/*Desktop*/
+@media screen and (min-width: 1025px){
+    .myInfoHome{
+        margin-left: 90px;
+        margin-right: 90px;
+        margin-bottom: 40px;
+    }
+    .img-container{
+        height: 490px;
+        width: 100%;
+        max-width: 3000px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .img-container .large{
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay-bottom-left{
+        top:240px;
+        padding-left: 13px;
+        padding-top: 27px;
+        padding-right: 20px;
+        padding-bottom: 9px;
+        z-index: 3;
+        border-radius: 13px;
+        margin-left: 60px;
+    }
+    .overlay-bottom-left .small1{
+        width: 210px;
+        height: 190px;
+        border-radius: 7px;
+    }
+
+    .overlay-top-right{
+        margin-top: 320px;
+        padding: 9px;
+        padding-right: 20px;
+        border-radius: 10px;
+        gap: 0.5em;
+        margin-right: 30px;
+    }
+    .overlay-top-right .small2{
+        height: 120px;
+        width: 120px;
+        border-radius: 3px;
+
+    }
+    .text strong{
+        font-size: 20px;
+    }
+    .text p{
+        font-size: 14px;
+    }
+
+    .infoText{
+        padding-top: 1em;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 10em;
+        
+
+        .line{
+            display: flex ;
+            flex-direction: column;
+            align-items: flex-start;
+
+            h1{
+                font-size: clamp(16px, 4vw, 36px);
+            }
+
+            h2{
+                font-size: 20px;
+            }
+            p{
+                font-size:17px;
+            }
+        }
+    }
+
+    .myInfoHome p{
+        text-align: start;
+    }
+
+    .imgCircle{
+        width: 151px;
+        height: 151px;
+    }
+   
+}

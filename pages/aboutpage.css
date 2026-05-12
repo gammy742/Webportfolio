@@ -1,0 +1,395 @@
+#about-section {
+    position: relative; 
+    
+    /* Path ที่อ้างอิงจาก Root ของโปรเจกต์ */
+    background-image: url("/pages/homepagePic/VoranatePic3.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    height: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    
+}
+
+/* Overlay เพื่อให้ตัวหนังสืออ่านง่าย - อย่าลืมใส่นะครับ! */
+#about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* สีดำโปร่งแสง */
+    z-index: 1;
+   
+}
+
+.aboutOverlay {
+    position: relative; 
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.47); /* สีขาวโปร่งแสง */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    top: 20px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    margin-bottom: 40px;
+
+    max-width: 1200px;
+    border-radius: 30px;
+}
+.slides{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition:200ms opacity ease-in-out;
+    transition-delay: 200ms;
+}
+
+.slides[data-active]{
+    opacity: 1;
+}
+
+.slides >img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    /* จัดการให้รูปพอดีกับกรอบหน้าจอโทรศัพท์ */
+    padding: 10px; /* ใช้เขียนย่อแบบนี้แทนเขียนแยก 4 บรรทัดได้เลยครับ */
+    border-radius: 50px; 
+    box-sizing: border-box; /* สำคัญมาก! เพื่อไม่ให้ padding ดันรูปจนล้นกรอบ 300px */
+}
+
+.carousel{
+    position: relative;
+    width: 100%; 
+    height: 100%;/* รักษาสัดส่วนมือถืออัตโนมัติ */
+    width: 237px; /* ความกว้งจำลองของมือถือ */
+    height: 474px;
+    display: block;
+    flex-shrink: 0;
+    overflow: hidden; 
+    border-radius: clamp(20px, 5vw, 40px);
+    top: 40px;
+}
+
+.carousel >ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    inset: 0;
+    z-index: 5
+}
+
+.maskImage{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.carousel-button{
+    position: absolute;
+    z-index: 12;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    top:50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    color: turquoise;
+}
+
+.carousel-button:hover,
+.carousel-button:focus{
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-button.prev{
+    left:1rem;
+}
+
+.carousel-button.next{
+    right:1rem;
+}
+
+.about-info{
+    background-color: #690000;
+    z-index: 20;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-right:60px ;
+    padding-left:60px ;
+    gap:clamp(10px,2vw,45px);
+    padding-top:clamp(1rem, 2vw, 4rem) ;
+    padding-bottom:clamp(1rem, 2vw, 4rem) ;
+    border-radius: 20px;
+}
+
+.about-info>h2{
+    font-size: clamp(1.25rem, 1.8vw, 36px);
+    color:#FFC233;
+    font-family: prompt, sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.about-info>p{
+    font-size:clamp(1rem, 1.8vw, 27px);
+    color: white;
+    max-width: 450px; 
+    /* เพิ่มระยะห่างระหว่างบรรทัดให้อ่านง่ายขึ้น (เพราะเราไม่มี <br> แล้ว) */
+    line-height: 1.6;
+}
+.headInfo{
+    font-size:clamp(18px, 2vw, 40px);
+    top:clamp(30px, 2vw, 40px);
+    background-color: #FFC233;
+    position: relative;
+    z-index: 9;
+    font-weight: 500;
+    font-family: prompt, sans-serif;
+    display: flex;
+    padding-top:clamp(0.5rem, 2vw, 1rem);
+    padding-bottom:clamp(0.5rem, 2vw, 1rem);
+    padding-left:clamp(1.2rem, 2vw, 1.25rem);
+    padding-right:clamp(1.2rem, 2vw, 1.25rem);
+    width: max-content;
+    position: absolute;
+    z-index: 20;
+
+    max-width: 450px; 
+    /* เพิ่มระยะห่างระหว่างบรรทัดให้อ่านง่ายขึ้น (เพราะเราไม่มี <br> แล้ว) */
+    line-height: 1.6;
+
+}
+
+.major{
+   display: flex;
+   flex-direction: column;
+}
+.major>p{
+    font-size:clamp(1rem, 1.8vw, 27px);
+    color: white;
+}
+
+.major>p>span{
+    color:#FFC233;
+}
+
+.aboutInfoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   justify-content: space-between;
+}
+
+
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .aboutOverlay {
+        display: flex;
+        align-items: center;
+        flex-direction: row !important;
+    
+        margin-left: 20px;
+        margin-right: 20px;
+        top: 20px;
+    
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 70px;
+        padding-bottom: 20px;
+    
+        margin-bottom: 70px;
+    
+        max-width: 1200px;
+        border-radius: 30px;
+    }
+
+    .slides >img{
+        padding: 10px;
+        border-radius: 20px; 
+    }
+
+    .carousel{
+        width: 237px; /* ความกว้งจำลองของมือถือ */
+        height: 474px; /* ความสูงจำลองของมือถือ */
+        border-radius: 5px; /* ทำให้ขอบมนเข้ากับมือถือ (ถ้าจำเป็น) */
+        display: block !important;
+        top: 0;
+    }
+
+
+    .aboutOverlay {
+        display: flex;
+        justify-content: center;
+    
+        margin-left: 60px;
+        margin-right: 60px;
+        top: 30px;
+
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    .about-info{
+        padding-right:1.5rem ;
+        padding-left:1rem ;
+    
+        padding-top:1.25rem ;
+        padding-bottom:2rem ;
+
+        z-index: 7;
+        border-radius: 0 30px 30px 0;
+        right: 10px;
+        
+    }
+
+    .aboutInfoContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-info>h2{
+        text-align: start;
+    }
+
+    .headInfo{
+        position: relative;
+        z-index: 20;
+        top:clamp(2px, 2vw, 40px);
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 1025px){
+    #about-section {
+        
+        display: flex;
+        justify-content: center;
+    
+        margin: 0;
+        padding: 0;
+    
+        
+    }
+    .aboutOverlay {
+        position: relative; 
+        z-index: 2;
+        background-color: rgba(255, 255, 255, 0.47); /* สีขาวโปร่งแสง */
+        display: flex;
+        justify-content: center;
+        flex-direction: row !important;
+    
+        margin-left: 90px;
+        margin-right: 90px;
+        top: 50px;
+    
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 70px;
+        padding-bottom: 20px;
+    
+        margin-bottom: 70px;
+    
+        max-width: 1200px;
+        border-radius: 30px;
+    }
+
+    .carousel{
+        width: 400px; /* ความกว้งจำลองของมือถือ */
+        height: 797px; /* ความสูงจำลองของมือถือ */
+        border-radius: 5px; /* ทำให้ขอบมนเข้ากับมือถือ (ถ้าจำเป็น) */
+        display: block !important;
+        top: 0;
+    }
+    
+    .slides >img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        /* จัดการให้รูปพอดีกับกรอบหน้าจอโทรศัพท์ */
+        padding: 10px; /* ใช้เขียนย่อแบบนี้แทนเขียนแยก 4 บรรทัดได้เลยครับ */
+        border-radius: 50px; 
+        box-sizing: border-box; /* สำคัญมาก! เพื่อไม่ให้ padding ดันรูปจนล้นกรอบ 300px */
+    }
+    
+    .carousel-button.prev{
+        left:1rem;
+    }
+    
+    .carousel-button.next{
+        right:1rem;
+    }
+    
+    .about-info{
+        display: flex;
+        flex-direction: column;
+        padding-right:9rem ;
+        padding-left:2.5rem ;
+        border-radius: 0 30px 30px 0;
+        right: 10px;
+        z-index: 7;
+    }
+    
+    .major{
+       display: flex;
+       flex-direction: column;
+    }
+    
+    .major>p>span{
+        color:#FFC233;
+    }
+    .about-info>h2{
+        text-align: start;
+    }
+    
+    .aboutInfoContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+
+    .headInfo{
+        position: relative;
+        top:clamp(2px, 2vw, 40px);
+        z-index: 20;
+    }
+
+}

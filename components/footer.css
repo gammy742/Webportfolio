@@ -1,0 +1,95 @@
+footer{
+    background-color: #950101;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+    gap: 1em; 
+}
+
+.social-icons{
+    list-style: none;
+    color: white;
+    display: flex;
+    gap: 1em;
+
+}
+
+.social-icons li a {
+    display: flex;
+    font-size: 26px;
+    text-decoration: none; 
+    gap:7px;
+    align-items: center;
+}
+.social-icons li a i{
+    color: white;
+    font-size: 26px;
+}
+
+.social-icons li a:hover{
+    color: yellow;
+    font-size: 26px;
+}
+
+.footerLabel{
+    color:white;
+    display: none;
+}
+
+p{
+    font-size: 16px;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 100;
+}
+
+.email a{
+    color: white;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.emailLabel{
+    color: white;
+    font-size: 16px;
+
+}
+.email a i{
+    color: white;
+    font-size: 26px;
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .footerLabel{
+        display: block !important;
+        font-size: 20px;
+    }
+
+    .emailLabel{
+        color: white;
+        font-size: 20px;
+    
+    }
+}
+
+/*Desktop*/
+@media screen and (min-width: 1025px){
+    p{
+        font-size: 20px;
+    }
+    .footerLabel{
+        display: block !important;
+        font-size: 20px;
+    }
+
+    .emailLabel{
+        color: white;
+        font-size: 20px;
+    
+    }
+
+}
