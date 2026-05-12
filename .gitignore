@@ -3,3 +3,4 @@
 .sixth
 node_modules
 backend
+.DS_Store
