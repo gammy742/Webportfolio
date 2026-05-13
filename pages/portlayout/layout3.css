@@ -1,0 +1,108 @@
+/* layout3.css */
+.layout3-page {
+    background: #fafafa;
+    color: #111;
+}
+
+/* Hero */
+.l3-hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 8%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.l3-tag {
+    background: rgba(255,255,255,0.2);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.l3-hero h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+/* Timeline */
+.l3-process {
+    padding: 6rem 8%;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ddd;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    width: 45%;
+    position: relative;
+}
+
+.timeline-item.left  { align-self: flex-start; }
+.timeline-item.right { align-self: flex-end; }
+
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #764ba2;
+    border-radius: 50%;
+    top: 1rem;
+}
+
+.timeline-item.left  .timeline-dot { right: -12%; }
+.timeline-item.right .timeline-dot { left: -12%; }
+
+.timeline-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    width: 100%;
+}
+
+.step-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #764ba2;
+    opacity: 0.3;
+}
+
+.timeline-card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.timeline-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .timeline-line { left: 1rem; }
+    .timeline-item { width: 85%; align-self: flex-end; }
+    .timeline-dot  { left: -14% !important; right: auto !important; }
+}

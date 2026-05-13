@@ -33,13 +33,14 @@ export async function Portfoliopreview(){
 
     const createPreviewCard=portPreview.map((item)=>{
         return`
-            <div class="portCard">
+            <div class="portCard"  data-id="${item.id}">
                 <img src ="${item.url}" alt="${item.title}"/>
                 <div class="portInfo">
                     <h1>${item.company}</h1>
                     <h2>${item.role}</h2>
                     <p>${item.description}</p>
                 </div>
+                <button class="sm-btn"  onclick="window.location.hash='/portfolio/${item.id}'">See more</button>
             </div>
         `
     }).join("");

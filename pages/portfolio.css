@@ -1,0 +1,229 @@
+/* ===========================
+   Base Style (Mobile)
+=========================== */
+.full-section {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 1em;
+}
+
+.full-section img {
+    margin-top: 1em;
+    width: 100%;
+    object-fit: cover;
+    padding-left: 2em;
+    padding-right: 2em;
+    height: 300px;
+}
+
+.full-port {
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+    padding-right: 2em;
+    gap: 4px;
+}
+
+.full-port span {
+    color: #FFC233;
+    font-family: prompt, serif;
+    font-weight: 600;
+}
+
+.full-port .company {
+    color: #FFC233;
+    font-size: 20px;
+    font-family: prompt, serif;
+    font-weight: 600;
+}
+
+.full-port .id {
+    color: #FFC233;
+    font-size: 30px;
+}
+
+.full-port p {
+    color: white;
+    font-size: 14px;
+    font-family: prompt, serif;
+    font-weight: 200;
+}
+
+.full-port h3 {
+    color: black;
+    background-color: aliceblue;
+    font-size: 14px;
+    font-family: prompt, serif;
+    font-weight: 200;
+    width: fit-content;
+    padding: 3px 7px;
+    border-radius: 50px;
+}
+
+.full-port h2 {
+    color: gray;
+    font-size: 18px;
+    font-family: prompt, serif;
+    font-weight: 200;
+    padding: 3px 7px;
+    border-radius: 50px;
+}
+
+.pr-btn{
+    display: none;
+}
+
+.pr-btn-mobile{
+    margin-top: 1em;
+    font-size: 13px;
+    background-color: #FFC233;
+    border-style: none;
+    border-radius: 4px;
+    width: fit-content;
+    padding: 6px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: 2.5em;
+}
+
+/* ===========================
+   Tablet (768px - 1024px)
+=========================== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* id คี่ (1, 3, 5) img ขวา */
+    .full-section {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding-top: 1em;
+    }
+
+    .full-section img {
+        width: 400px;
+        padding-right: 70px;
+        object-fit: cover;
+    }
+
+    /* id คู่ (2, 4, 6) img ซ้าย */
+    .full-section.reverse {
+        flex-direction: row;
+    }
+
+    .full-section.reverse img {
+        padding-right: 0;
+        padding-left: 70px;
+    }
+
+    .full-port {
+        padding-left: 70px;
+        gap: 4px;
+    }
+
+    .full-port .company {
+        font-size: 30px;
+    }
+
+    .full-port .id {
+        font-size: 50px;
+    }
+
+    .full-port p {
+        font-size: 18px;
+    }
+
+    .full-port h2 {
+        font-size: 20px;
+    }
+
+ .pr-btn{
+        font-size: 17px;
+        background-color: #FFC233;
+        border-style: none;
+        border-radius: 4px;
+        width: fit-content;
+        padding: 6px;
+        padding-right: 10px;
+        padding-left: 10px;
+        display: block !important;
+    }
+
+    .pr-btn-mobile{
+        
+        display: none !important;
+    }
+}
+
+/* ===========================
+   Desktop (1025px+)
+=========================== */
+@media screen and (min-width: 1025px) {
+
+    /* id คี่ (1, 3, 5) img ขวา */
+    .full-section {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: 4em 6em;
+        gap: 2em;
+    }
+
+    .full-section img {
+        width: 50%;
+        max-width: 600px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* id คู่ (2, 4, 6) img ซ้าย */
+    .full-section.reverse {
+        flex-direction: row;
+    }
+
+    .full-port {
+        width: 50%;
+        padding-left: 4em;
+        padding-right: 4em;
+        gap: 8px;
+    }
+
+    .full-port .company {
+        font-size: 36px;
+    }
+
+    .full-port .id {
+        font-size: 60px;
+    }
+
+    .full-port p {
+        font-size: 20px;
+    }
+
+    .full-port h2 {
+        font-size: 22px;
+    }
+
+    .full-port h3 {
+        font-size: 16px;
+    }
+
+
+    .pr-btn{
+        font-size: 17px;
+        background-color: #FFC233;
+        border-style: none;
+        border-radius: 4px;
+        width: fit-content;
+        padding: 6px;
+        padding-right: 10px;
+        padding-left: 10px;
+        display: block !important;
+    }
+
+    .pr-btn-mobile{
+        
+        display: none !important;
+    }
+
+}

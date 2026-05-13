@@ -1,0 +1,99 @@
+/* layout2.css */
+.layout2-page {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f0eb;
+    color: #1a1a1a;
+}
+
+/* Left - Sticky */
+.l2-left {
+    width: 40%;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: #1a1a1a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+}
+
+.l2-left h1 {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.l2-role {
+    color: #f0b429;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.l2-duration {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Skill Bars */
+.skill-bar {
+    margin-bottom: 1rem;
+}
+
+.bar {
+    background: #333;
+    border-radius: 999px;
+    height: 6px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: #f0b429;
+    border-radius: 999px;
+    transition: width 1s ease;
+}
+
+/* Right - Scroll */
+.l2-right {
+    width: 60%;
+    padding: 3rem 2rem;
+    overflow-y: auto;
+}
+
+.l2-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.l2-thumb {
+    position: relative;
+}
+
+.l2-thumb img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.l2-thumb span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .layout2-page { flex-direction: column; }
+    .l2-left { 
+        width: 100%; 
+        position: relative;
+        height: auto;
+    }
+    .l2-right { width: 100%; }
+}

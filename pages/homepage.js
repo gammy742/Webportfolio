@@ -108,7 +108,6 @@ export async function Homepage(){
         </section>
         ${aboutpage()}
         ${previewHTML}
-        ${Portfoliopreview()}
         ${Footer()}
         
         

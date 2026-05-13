@@ -1,110 +1,49 @@
 import { Footer } from "../components/footer.js";
 
-export async function Portfoliopage() {
-
-    //Fetch Data
-    async function fetchData() {
-        try {
-            const response = await fetch(`http://localhost:3000/api/portfolio/1`,{method:"GET"});
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            
-            const data = await response.json();
-            console.log(data);
-            return data;
- 
-        } catch (error) {
-            console.error('Fetch error:', error);
-            return null;
-        }
+async function fetchData() {
+    try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/portfolio`, { method: "GET" });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return await response.json();
+    } catch (error) {
+        console.error('Fetch error:', error);
+        return null;
     }
+}
 
-    //Get data from API
-    const portfolio= await fetchData();
+export async function Portfoliopage() {
+    const portfolio = await fetchData();
 
-    //Check data
-    if(!portfolio){
-        return`
+    if (!portfolio) {
+        return `
             <div class="error-state">
                 <p>⚠️ ไม่สามารถโหลดข้อมูลได้</p>
             </div>
-            ${Footer()}
         `;
-        
     }
 
-    //Create Card
-    const createSlides=portfolio.gallery?.map((item,index)=>{
-        return`
-            <div class="carousel-slide"${index===0 ? "data-active":""}>
-                <div class="portfolio-card">
-                    <img src="${item.url}" alt="${item.title}" loading="lazy"/>
-                    <div class="portfolio-card-info">
-                        <h3>${item.title}</h3>
-                        <p>${item.description}</p>
+    const createPortfolioSection = portfolio.map((item) => {
+        const reverseClass = item.id % 2 === 0 ? "reverse" : "";
+        return `
+            <div class="full-section ${reverseClass}" data-id="${item.id}">
+                <img src="${item.url}" alt="${item.company}"/>
+                <div class="full-port">
+                    <div>
+                        <span class="id">0${item.id}</span>
+                        <span class="company">${item.company}</span>
                     </div>
-
-                    <button
-                        class="view-detail-btn"
-                        data-id="${item.id}"
-                        data-url="${item.url ?? ""}"
-                        data-title="${item.title ?? ""}"
-                        data-description="${item.description ?? ""}"
-                        data-full-description="${item.fullDescription ?? ""}"
-                        data-type="${item.type ?? ""}"
-                        data-category="${item.category ?? ""}"
-                    >
-                        ดูรายละเอียด
-                    </button>
+                    <h2>${item.duration}</h2>
+                    <h3>${item.role}</h3>
+                    <p>${item.fullDescription}</p>
+                    <button class="pr-btn ${reverseClass}" onclick="window.location.href='/#/portfolio/${item.id}'">See more</button>
                 </div>
             </div>
-        `
-    }).join("")??"";
-    return`
-        <section class="portfolio-page">
+            <button class="pr-btn-mobile ${reverseClass}" onclick="window.location.href='/#/portfolio/${item.id}'">See more</button>
+        `;
+    }).join("");
 
-            <div class="portfolio-header">
-                <h1>${portfolio.company}</h1>
-                <h2>${portfolio.duration}</h2>
-                <p>${portfolio.role}</p>
-            </div>
-
-            <!-- Carousel -->
-            <div class="carousel-wrapper" data-carousel>
-                <button 
-                    class="carousel-btn prev"
-                    data-carousel-button="prev"
-                    aria-label="previous"
-                >
-                    &#8592;
-                </button>
-
-                <div class="carousel-track-wrapper">
-                    <div class="carousel-track" data-slides>
-                        ${createSlides}
-                    </div>
-                </div>
-
-                <button 
-                    class="carousel-btn next"
-                    data-carousel-button="next"
-                    aria-label="next"
-                >
-                    &#8594;
-                </button>
-            </div>
-
-
-        </section>
-
-        <!-- Modal -->
-        <div class="portfolio-modal" id="portfolio-modal" style="display:none;">
-            <div class="modal-overlay" id="modal-overlay"></div>
-            <div class="modal-content">
-                <button class="close-modal" id="close-modal" aria-label="ปิด">&times;</button>
-                <div class="modal-body" id="modal-body"></div>
-            </div>
-        </div>
+    return `
+        ${createPortfolioSection}
         ${Footer()}
     `;
-
 }
