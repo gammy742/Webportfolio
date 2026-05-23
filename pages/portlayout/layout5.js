@@ -1,28 +1,55 @@
-export function layout5(portfolio){
-    const gallery=portfolio.gallery?.map((item)=>`
-        <div>
+// portlayout/layout5.js
+export function layout5(portfolio) {
+    const tags = portfolio.tags?.map((tag) => `
+        <span class="l5-tag">${tag}</span>
+    `).join('') ?? '';
+
+    const featured = portfolio.gallery?.[0];
+    const rest = portfolio.gallery?.slice(1) ?? [];
+
+    const restGrid = rest.map((item) => `
+        <div class="l5-grid-item">
             <img src="${item.url}" alt="${item.title}" loading="lazy"/>
-            <div class="img-overlay">
-                <div class="img-title">${item.title}</div>
-                <p>${item.description}</p>
-                <div class="img-type">${item.type} · ${item.category}</div>
+            <div class="l5-grid-caption">
+                <strong>${item.title}</strong>
+                <span>${item.category ?? ''}</span>
             </div>
         </div>
-    `).join("")??"";
+    `).join('');
 
-    return`
-        <section class="portfolio-page">
-            <div class="portfolio-hero">
-                <h1>${portfolio.company}</h1>
-                <div class="portfolio-meta">
-                    <span class="badge">${portfolio.role}</span>
-                    <span class="badge">${portfolio.duration}</span>
+    return `
+        <section class="layout5-page">
+
+            <!-- Top Bar -->
+            <div class="l5-topbar">
+                <span class="l5-company">${portfolio.company}</span>
+                <div class="l5-tags">${tags}</div>
+            </div>
+
+            <!-- Featured Image -->
+            ${featured ? `
+            <div class="l5-featured">
+                <img src="${featured.url}" alt="${featured.title}" loading="lazy"/>
+                <div class="l5-featured-text">
+                    <h1>${portfolio.company}</h1>
+                    <p>${portfolio.role} · ${portfolio.duration}</p>
                 </div>
-                 <p class="portfolio-desc">${portfolio.fullDescription ?? portfolio.description}</p>
             </div>
-            <div class="gallery-section">
-                <div class="masonry">${gallery}</div>
+            ` : ''}
+
+            <!-- Description -->
+            <div class="l5-about">
+                <div class="l5-about-inner">
+                    <h2>About the Project</h2>
+                    <p>${portfolio.fullDescription ?? portfolio.description}</p>
+                </div>
             </div>
+
+            <!-- Bento Grid -->
+            <div class="l5-bento">
+                ${restGrid}
+            </div>
+
         </section>
-    `
+    `;
 }

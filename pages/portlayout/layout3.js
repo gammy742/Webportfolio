@@ -1,27 +1,42 @@
-export function layout3(portfolio){
-    const gallery=portfolio.gallery?.map((item)=>`
-        <div>
-            <img src="${item.url}" alt="${item.title}" loading="lazy"/>
-            <div class="img-overlay">
-                <div class="img-title">${item.title}</div>
-                <div class="img-type">${item.type} · ${item.category}</div>
+// portlayout/layout3.js
+export function layout3(portfolio) {
+    const steps = portfolio.process?.map((step, i) => `
+        <div class="timeline-item ${i % 2 === 0 ? 'left' : 'right'}">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <span class="step-num">0${i + 1}</span>
+                <h3>${step.title}</h3>
+                <p>${step.description}</p>
+                ${step.image 
+                    ? `<img src="${step.image}" alt="${step.title}" loading="lazy"/>` 
+                    : ''
+                }
             </div>
         </div>
-    `).join("")??"";
+    `).join('') ?? '';
 
-    return`
-        <section class="portfolio-page">
-            <div class="portfolio-hero">
+    return `
+        <section class="layout3-page">
+
+            <!-- Hero -->
+            <div class="l3-hero">
+                <span class="l3-tag">${portfolio.role}</span>
                 <h1>${portfolio.company}</h1>
-                <div class="portfolio-meta">
-                    <span class="badge">${portfolio.role}</span>
-                    <span class="badge">${portfolio.duration}</span>
+                <p>${portfolio.duration}</p>
+                <p class="l3-desc">
+                    ${portfolio.fullDescription ?? portfolio.description}
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="l3-process">
+                <h2 class="section-title">Process</h2>
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    ${steps}
                 </div>
-                 <p class="portfolio-desc">${portfolio.fullDescription ?? portfolio.description}</p>
             </div>
-            <div class="gallery-section">
-                <div class="masonry">${gallery}</div>
-            </div>
+
         </section>
-    `
+    `;
 }
