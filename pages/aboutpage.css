@@ -1,4 +1,4 @@
-#about-section {
+#section-about {
     position: relative; 
     
     /* Path ที่อ้างอิงจาก Root ของโปรเจกต์ */
@@ -23,7 +23,7 @@
 }
 
 /* Overlay เพื่อให้ตัวหนังสืออ่านง่าย - อย่าลืมใส่นะครับ! */
-#about-section::before {
+#section-about::before {
     content: '';
     position: absolute;
     top: 0;
@@ -88,7 +88,7 @@
     height: 100%;/* รักษาสัดส่วนมือถืออัตโนมัติ */
     width: 237px; /* ความกว้งจำลองของมือถือ */
     height: 474px;
-    display: block;
+    display: none;
     flex-shrink: 0;
     overflow: hidden; 
     border-radius: clamp(20px, 5vw, 40px);
@@ -173,7 +173,7 @@
 }
 .headInfo{
     font-size:clamp(18px, 2vw, 40px);
-    top:clamp(30px, 2vw, 40px);
+    top:10px;
     background-color: #FFC233;
     position: relative;
     z-index: 9;
@@ -185,8 +185,8 @@
     padding-left:clamp(1.2rem, 2vw, 1.25rem);
     padding-right:clamp(1.2rem, 2vw, 1.25rem);
     width: max-content;
-    position: absolute;
-    z-index: 20;
+    position: relative;
+    z-index: 26;
 
     max-width: 450px; 
     /* เพิ่มระยะห่างระหว่างบรรทัดให้อ่านง่ายขึ้น (เพราะเราไม่มี <br> แล้ว) */
@@ -295,7 +295,7 @@
 
 /*Desktop*/
 @media screen and (min-width: 1025px){
-    #about-section {
+    #section-about {
         
         display: flex;
         justify-content: center;

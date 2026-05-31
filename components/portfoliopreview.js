@@ -33,6 +33,7 @@ export async function Portfoliopreview(){
 
     const createPreviewCard=portPreview.map((item)=>{
         return`
+        <section id="section-portfolio">
             <div class="portCard"  data-id="${item.id}">
                 <img src ="${item.url}" alt="${item.title}"/>
                 <div class="portInfo">
@@ -42,10 +43,15 @@ export async function Portfoliopreview(){
                 </div>
                 <button class="sm-btn"  onclick="window.location.hash='/portfolio/${item.id}'">See more</button>
             </div>
+        </section>
         `
     }).join("");
 
     return`
+        <div class="hder">
+            <h1>Work / Projects</h1>
+            <p>A collection my experience,passion projects and key achievements</p>
+        </div>
         <div class="carousel-track" data-slides>
              ${createPreviewCard}
          </div>

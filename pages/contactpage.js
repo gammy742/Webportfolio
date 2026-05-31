@@ -1,0 +1,80 @@
+export function contactPage() {
+    // ✅ return HTML ก่อน
+    const html = `
+        <section id="section-contact">
+            <div class="contact-wrapper">
+                <div class="contact-left">
+                    <h2>Contact<span>Me</span></h2>
+                    <p class="contact-subtitle">มีโปรเจกต์ในใจ?<br>Send me message</p>
+                </div>
+                <div class="contact-info-box">
+                    <form id="contact-form">
+                        <input type="text" id="name" placeholder="ชื่อ" required/>
+                        <input type="email" id="email" placeholder="อีเมล" required/>
+                        <textarea id="message" placeholder="ข้อความ" required></textarea>
+                        <button type="submit">ส่ง</button>
+                        <p id="form-status"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    `;
+
+    // ✅ bind event หลัง DOM พร้อม
+    requestAnimationFrame(() => {
+        const form = document.getElementById("contact-form");
+        const status = document.getElementById("form-status");
+
+        form?.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            status.textContent = "กำลังส่ง...";
+
+            const result = await fetchData(name, email, message);
+
+            status.className = result.success ? "success" : "error";
+            status.textContent = result.message;
+        });
+    });
+
+    return html;
+}
+
+    async function fetchData(name,email,message){
+        try{
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/send-email`,{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({
+                    name,
+                    email,
+                    message
+                })
+            });
+
+            const data=await response.json();
+
+            if(response.ok){
+                return{
+                    success:true, 
+                    message:data.message
+                };
+            }else{
+                return{
+                    success:false,
+                    message:data.message || 'เกิดข้อผิดพลาดในการส่งอีเมล'
+                };
+            }
+        }catch(error){
+            console.error('Error sending email:',error);
+            return {
+                success: false,
+                message: 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้'
+            };
+        }
+
+    }

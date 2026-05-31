@@ -13,7 +13,6 @@ export function layout4(portfolio) {
 
     return `
         <section class="layout4-page">
-
             <!-- Fullscreen Hero -->
             <div class="l4-hero" style="--bg: url('${portfolio.cover ?? portfolio.url}')">
                 <div class="l4-hero-overlay">

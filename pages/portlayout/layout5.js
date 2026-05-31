@@ -19,7 +19,6 @@ export function layout5(portfolio) {
 
     return `
         <section class="layout5-page">
-
             <!-- Top Bar -->
             <div class="l5-topbar">
                 <span class="l5-company">${portfolio.company}</span>

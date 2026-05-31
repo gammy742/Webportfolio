@@ -9,42 +9,33 @@ export async function Homepage(){
         "Video-editor"
     ];
 
-    setTimeout(()=>{
+    function initTypeEffect() {
         const textDisplay = document.getElementById('text');
-        if(!textDisplay) return;
-        
-        let phraseIndex= 0;
-        let charIndex=0;
+        if (!textDisplay) return;
+
+        let phraseIndex = 0;
+        let charIndex = 0;
         let isDeleting = false;
-        let timerId = null;
-            
-        function typeEffect(){
+
+        function typeEffect() {
             const currentPhrase = phrases[phraseIndex];
+            isDeleting ? charIndex-- : charIndex++;
+            textDisplay.textContent = currentPhrase.substring(0, charIndex);
 
-            if(isDeleting){
-                charIndex--;
-            }else{
-                charIndex++;
-            }
+            let typeSpeed = isDeleting ? 50 : 150;
 
-            textDisplay.textContent=currentPhrase.substring(0,charIndex);
-            
-            let typeSpeed = isDeleting ? 50:150;
-
-            if(!isDeleting && charIndex === currentPhrase.length){
+            if (!isDeleting && charIndex === currentPhrase.length) {
                 typeSpeed = 1500;
                 isDeleting = true;
-            }else if(isDeleting && charIndex ===0){
+            } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
                 typeSpeed = 500;
             }
-
-            timerId=setTimeout(typeEffect,typeSpeed);
+            setTimeout(typeEffect, typeSpeed);
         }
-
-        typeEffect();    
-    },0)
+        typeEffect();
+    }
     
     const images={
         
@@ -68,8 +59,12 @@ export async function Homepage(){
 
     const previewHTML = await Portfoliopreview();
 
+    requestAnimationFrame(() => {
+        initTypeEffect();
+    });
+
     return`
-        <section id="home">
+        <section id="section-home">
             <div class="container">
                 <div class="myInfoHome">
                     <div class ="img-container">
@@ -106,10 +101,7 @@ export async function Homepage(){
                 </div>
             </div>
         </section>
-        ${aboutpage()}
-        ${previewHTML}
-        ${Footer()}
-        
+    
         
     `
 

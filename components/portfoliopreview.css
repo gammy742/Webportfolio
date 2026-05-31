@@ -1,8 +1,10 @@
 .carousel-track {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 2rem;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .portCard {
@@ -69,4 +71,65 @@
     font-size: 16px;
     margin-left:1em ;
     margin-bottom:1em ;
+}
+.sm-btn:hover{
+    background-color: #e6a500;
+}   
+
+.hder h1{
+    padding-top: 2rem;
+    color:white;
+    font-family: prompt, serif;
+    font-weight: 500;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: clamp(1.25rem, 1.8vw, 40px);
+}
+
+.hder p{
+    color:white;
+    font-family: prompt, serif;
+    font-weight: 200;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: clamp(1rem, 1.8vw, 30px);
+}
+
+/* Tablet */
+@media screen and (min-width:768px)and (max-width: 1024px) {
+    .carousel-track {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .hder h1{
+        padding-top: 2rem;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    .hder p{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+/* Desktop*/
+@media screen and (min-width: 1025px) {
+    .carousel-track {
+        grid-template-columns: repeat(3, 1fr);
+        padding-left: 90px;
+        padding-right: 90px;
+        
+    }
+    .hder h1{
+        padding-top: 2rem;
+        padding-left: 90px;
+        padding-right: 90px;
+    }
+    
+    .hder p{
+        padding-left: 90px;
+        padding-right: 90px;
+    }
 }

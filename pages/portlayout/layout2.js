@@ -18,7 +18,6 @@ export function layout2(portfolio) {
 
     return `
         <section class="layout2-page">
-
             <!-- Left Panel (Sticky Info) -->
             <div class="l2-left">
                 <div class="l2-info">

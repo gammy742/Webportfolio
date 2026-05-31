@@ -8,7 +8,7 @@ export function aboutpage(){
     ]
 
     return `
-            <section id="about-section">
+            <section id="section-about">
                 <div class="aboutOverlay">
                     <div class="carousel"  data-carousel >
                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>

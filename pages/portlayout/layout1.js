@@ -17,7 +17,6 @@ export function layout1(portfolio) {
 
     return `
         <section class="layout1-page">
-
             <!-- Hero -->
             <div class="l1-hero">
                 <h1>${portfolio.company}</h1>

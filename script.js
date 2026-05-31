@@ -2,17 +2,30 @@ import{Homepage} from "./pages/homepage.js"
 import{Navbar} from "./components/navbar.js"
 import { aboutpage } from "./pages/aboutpage.js";
 import { carouselButton } from  "./helpers/carouselButton.js";
-import{Portfoliopage} from"./pages/portforlio.js";
+import{Portfoliopreview} from"./components/portfoliopreview.js";
 import{PortfolioDetail} from "./pages/portfolioDetail.js"
-
+import{Footer} from "./components/footer.js";
+import{contactPage}from"./pages/contactpage.js";
 const routes = {
-    home:{path:"#/", component:Homepage},
-    about:{path:"#/about", component:aboutpage},
-    portfolio:{path:"#/portfolio",component:Portfoliopage},
-    portfolioDetail: { path:"#/portfolio/:id", component:PortfolioDetail },
-    contact:{path:"#/contact",component:()=>`<h1>Welcome to Contact page</h1>`}
+    home:{ path:"#/", component:renderMainPage },
+    portfolioDetail: { path:"#/portfolio/:id", component:PortfolioDetail }
 };
 
+async function renderMainPage(){
+    const homeHTML=await Homepage();
+    const aboutHTML=await aboutpage();
+    const portfolioHTML=await Portfoliopreview();
+    const footerHTML=await Footer();
+    const contactHTML=await contactPage();
+
+    return`
+        ${homeHTML}
+        ${aboutHTML}
+        ${portfolioHTML}
+        ${contactHTML}
+        ${footerHTML}
+    `;
+}
 function getPageFromPath(){
     const hash=window.location.hash||"#/";
 
@@ -23,16 +36,10 @@ function getPageFromPath(){
     );
 }
 
-async function navigate(page,updateHistory){
-    console.log("navigate to:", page);  
+async function renderPage(page){
+    const root = document.getElementById("root");
     const route = routes[page];
     if(!route) return;
-
-    if(updateHistory){
-        window.location.hash=route.path.replace("#","");
-    }
-
-    const root = document.getElementById("root");
 
     root.innerHTML= `
         ${Navbar(page)}
@@ -51,18 +58,53 @@ async function navigate(page,updateHistory){
         pageDiv.innerHTML = component;
     }
 
-    root.querySelectorAll(".menu a").forEach(a=>{
+    root.querySelectorAll(".menu a[data-page]").forEach(a=>{
         a.addEventListener("click",(e)=>{
             e.preventDefault();
-            console.log("nav clicked:", a.dataset.page);
-            navigate(a.dataset.page, true);
+            const target =a.dataset.page;
+
+            //Scroll
+            if(["home","about","portfolio","contact"].includes(target)){
+                const currentPage = getPageFromPath();
+                if(currentPage===target){
+                    scrollToSection(target);
+                }else{
+                    navigate("home", true).then(() => {
+                        // ต้อง wait ให้ DOM render ก่อน
+                        requestAnimationFrame(() => {
+                            scrollToSection(target);
+                        });
+                    });
+                }
+            }else{
+                navigate(target,true);
+            }
         });
     });
 
-   
     carouselButton();
-   
-    window.scrollTo(0,0);
+}
+
+async function navigate(page,updateHistory){
+    console.log("navigate to:", page);  
+    const route = routes[page];
+    if(!route) return;
+
+    if(updateHistory){
+        window.location.hash=route.path.replace("#","");
+    }
+
+    await renderPage(page);
+
+    window.scrollTo(0, 0);
+}
+
+// ✅ scroll function กลาง
+function scrollToSection(sectionId) {
+    const el = document.getElementById(`section-${sectionId}`);
+    if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+    }
 }
 
 window.addEventListener("hashchange",()=>{
