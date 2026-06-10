@@ -1,10 +1,12 @@
+import IMG_8611 from "./homepagePic/IMG_8611.JPG";
+
 export function contactPage() {
     // ✅ return HTML ก่อน
     const html = `
         <section id="section-contact">
             <div class="contact-wrapper">
                 <div class="contact-left">
-                    <img src="/pages/homepagePic/IMG_8611.JPG" alt="Contact Image" class="contact-image"/>
+                    <img src="${IMG_8611}" alt="Contact Image" class="contact-image"/>
                 </div>
                 <div class="contact-info-box">
                     <h2>Get in Touch</h2>

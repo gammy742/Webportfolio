@@ -1,6 +1,13 @@
 import { Footer } from "../components/footer.js";
 import { aboutpage } from "./aboutpage.js";
 import{Portfoliopreview} from "../components/portfoliopreview.js";
+import VoranatePic from 'pages/homepagePic/VoranatePic.webp';
+import VoranatePic3 from "./homepagePic/VoranatePic3.webp";
+import VoranatePic2 from "./homepagePic/VoranatePic2.webp";
+
+import circle1 from "./homepagePic/voranate-SWU.jpg";
+import circle2 from "./homepagePic/IMG_8611.JPG'";
+import circle3 from "./homepagePic/IMG_8613.JPG";
 
 export async function Homepage(){
     const phrases=[
@@ -39,15 +46,15 @@ export async function Homepage(){
     
     const images={
         
-       largePic:{src:'pages/homepagePic/VoranatePic3.webp',alt:"voranate-large-picture",class:"large"},
-       smallPic1:{src:'pages/homepagePic/VoranatePic2.webp',alt:"voranate-small1-picture",class:"small1"},
-       smallPic2:{src:'pages/homepagePic/VoranatePic.webp',alt:"voranate-small2-picture",class:"small2"},
+       largePic:{src: VoranatePic3,alt:"voranate-large-picture",class:"large"},
+       smallPic1:{src:VoranatePic2,alt:"voranate-small1-picture",class:"small1"},
+       smallPic2:{src:VoranatePic,alt:"voranate-small2-picture",class:"small2"},
     };
 
     const circleImages={
-        firstPic:{src:'pages/homepagePic/voranate-SWU.jpg',alt:"vorante-pic1"},
-        secondPic:{src:'pages/homepagePic/IMG_8611.JPG',alt:"vorante-pic1"},
-        thirdPic:{src:'pages/homepagePic/IMG_8613.JPG',alt:"vorante-pic1"}
+        firstPic:{src:circle1,alt:"vorante-pic1"},
+        secondPic:{src:circle2,alt:"vorante-pic1"},
+        thirdPic:{src:circle3,alt:"vorante-pic1"}
 
     }
 

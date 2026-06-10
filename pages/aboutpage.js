@@ -1,10 +1,13 @@
+import igPic from "./aboutpagePic/NagaIG.PNG";
+import fbPic from "./aboutpagePic/NagaFB.jpg";
+import tkPic from "./aboutpagePic/NagaTK.PNG";  
 
 
 export function aboutpage(){
     const carouselImages =[
-        {src:'pages/aboutpagePic/NagaIG.PNG', alt:"nagaIG"},
-        {src:'pages/aboutpagePic/NagaFB.jpg', alt:"nagaFB"},
-        {src:'pages/aboutpagePic/NagaTK.PNG', alt:"nagaTK"}
+        {src:igPic, alt:"nagaIG"},
+        {src:fbPic, alt:"nagaFB"},
+        {src:tkPic, alt:"nagaTK"}
     ]
 
     return `
