@@ -2,7 +2,7 @@ import igPic from "./aboutpagePic/NagaIG.PNG";
 import fbPic from "./aboutpagePic/nagaFB.jpg";
 import tkPic from "./aboutpagePic/nagaTK.PNG";  
 
-
+import Phoneframe from "./aboutpagePic/Phoneframe.png";
 export function aboutpage(){
     const carouselImages =[
         {src:igPic, alt:"nagaIG"},
@@ -16,7 +16,7 @@ export function aboutpage(){
                     <div class="carousel"  data-carousel >
                        <button class="carousel-button prev" data-carousel-button="prev">&#10094;</button>
                         <button class="carousel-button next" data-carousel-button="next">&#10095;</button>
-                        <img src="pages/aboutpagePic/Phoneframe.png" alt="Phone-frame" class="maskImage" />
+                        <img src="${Phoneframe}" alt="Phone-frame" class="maskImage" />
                         <ul data-slides>
                             ${carouselImages.map((image,index)=>`
                                 <li class ="slides" ${index ===0 ? 'data-active':''}> 

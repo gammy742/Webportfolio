@@ -146,12 +146,12 @@
     align-items: center;
     gap: 7px;
 
-    .line{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+}
 
+.infoText .line{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -218,24 +218,25 @@
         flex-direction: column;
         justify-content: space-between;
         gap: 1em;
-        
+    }
 
-        .line{
-            display: flex ;
-            flex-direction: column;
-            align-items: center;
+    .infoText .line{
+        display: flex ;
+        flex-direction: column;
+        align-items: center;
+    }
 
-            h1{
-                font-size: 36px;
-            }
+    .infoText .line h1{
+        font-size: 36px;
+    }
 
-            h2{
-                font-size: 20px;
-            }
-            p{
-                font-size:19px;
-            }
-        }
+
+    .infoText .line h2{
+        font-size: 20px;
+    }
+
+    .infoText .line p{
+        font-size:19px;
     }
 
     .label{
@@ -307,27 +308,28 @@
     .infoText{
         padding-top: 1em;
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: column;
         justify-content: space-between;
-        gap: 10em;
-        
+        gap: 1em;
+    }
 
-        .line{
-            display: flex ;
-            flex-direction: column;
-            align-items: flex-start;
+    .infoText .line{
+        display: flex ;
+        flex-direction: column;
+        align-items: center;
+    }
 
-            h1{
-                font-size: clamp(16px, 4vw, 36px);
-            }
+    .infoText .line h1{
+        font-size: clamp(16px, 4vw, 36px);
+    }
 
-            h2{
-                font-size: 20px;
-            }
-            p{
-                font-size:17px;
-            }
-        }
+
+    .infoText .line h2{
+        font-size: 20px;
+    }
+
+    .infoText .line p{
+        font-size:17px;
     }
 
     .myInfoHome p{
