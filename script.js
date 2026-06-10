@@ -1,5 +1,5 @@
 import{Homepage} from "./pages/homepage.js"
-import{Navbar} from "./components/navbar.js"
+import{Navbar,initNavbar } from "./components/navbar.js"
 import { aboutpage } from "./pages/aboutpage.js";
 import { carouselButton } from  "./helpers/carouselButton.js";
 import{Portfoliopreview} from"./components/portfoliopreview.js";
@@ -58,29 +58,20 @@ async function renderPage(page){
         pageDiv.innerHTML = component;
     }
 
-    root.querySelectorAll(".menu a[data-page]").forEach(a=>{
-        a.addEventListener("click",(e)=>{
-            e.preventDefault();
-            const target =a.dataset.page;
-
-            //Scroll
-            if(["home","about","portfolio","contact"].includes(target)){
-                const currentPage = getPageFromPath();
-                if(currentPage===target){
-                    scrollToSection(target);
-                }else{
-                    navigate("home", true).then(() => {
-                        // ต้อง wait ให้ DOM render ก่อน
-                        requestAnimationFrame(() => {
-                            scrollToSection(target);
-                        });
-                    });
-                }
-            }else{
-                navigate(target,true);
+    // ✅ แทนด้วย
+    initNavbar(
+        (target) => navigate(target, true),
+        (target) => {
+            const currentPage = getPageFromPath();
+            if (currentPage === "home") {
+                scrollToSection(target);
+            } else {
+                navigate("home", true).then(() => {
+                    requestAnimationFrame(() => scrollToSection(target));
+                });
             }
-        });
-    });
+        }
+    );
 
     carouselButton();
 }

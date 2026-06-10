@@ -26,3 +26,18 @@ export function Navbar(currentPage){
     `;
 }
 
+// ✅ เพิ่ม initNavbar
+export function initNavbar(onNavigate, onScroll) {
+    document.querySelectorAll(".menu a[data-page]").forEach(a => {
+        a.addEventListener("click", (e) => {
+            e.preventDefault();
+            const target = a.dataset.page;
+
+            if (["home", "about", "portfolio", "contact"].includes(target)) {
+                onScroll(target);
+            } else {
+                onNavigate(target);
+            }
+        });
+    });
+}

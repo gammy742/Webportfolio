@@ -31,30 +31,39 @@ export async function Portfoliopreview(){
         `
     }
 
-    const createPreviewCard=portPreview.map((item)=>{
-        return`
-        <section id="section-portfolio">
+    const createPreviewCard=portPreview.map((item)=>`
             <div class="portCard"  data-id="${item.id}">
-                <img src ="${item.url}" alt="${item.title}"/>
-                <div class="portInfo">
-                    <h1>${item.company}</h1>
-                    <h2>${item.role}</h2>
-                    <p>${item.description}</p>
+                <div class="bg-Overlay" style="--bg-url: url('${item.url}')">
+                    <div class="item-container">
+                        <img src ="${item.url}" alt="${item.title}"/>
+                        <img src="pages/portfoliopagePic/apple-macbookpro16-front.png" alt="macbook-frame" class="maskImg" />
+                    
+                    </div>
                 </div>
-                <button class="sm-btn"  onclick="window.location.hash='/portfolio/${item.id}'">See more</button>
+
+                <div class="portInfo">
+                    <div class="portInfo-text">
+                        <p>${item.role}</p>
+                        <h1>${item.company}</h1>
+                    </div>
+                    <button class="sm-btn"  onclick="window.location.hash='/portfolio/${item.id}'">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
-        </section>
         `
-    }).join("");
+    ).join("");
 
     return`
-        <div class="hder">
-            <h1>Work / Projects</h1>
-            <p>A collection my experience,passion projects and key achievements</p>
-        </div>
-        <div class="carousel-track" data-slides>
-             ${createPreviewCard}
-         </div>
+        <section id="section-portfolio">
+            <div class="hder">
+                <h1>Projects</h1>
+                <p>A collection my experience,passion projects and key achievements</p>
+            </div>
+            <div class="carousel-track" data-slides>
+                ${createPreviewCard}
+            </div> 
+        </section>
     
     `
 }

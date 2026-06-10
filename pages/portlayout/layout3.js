@@ -31,8 +31,7 @@ export function layout3(portfolio) {
             <div class="l3-process">
                 <h2 class="section-title">Process</h2>
                 <div class="timeline">
-                    <div class="timeline-line"></div>
-                    ${steps}
+                   Coming soon...
                 </div>
             </div>
 

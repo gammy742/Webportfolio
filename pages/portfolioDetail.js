@@ -36,6 +36,7 @@ export async function PortfolioDetail() {
     const renderLayout = layouts[id] ?? layout1;
 
     return `
+    
         ${renderLayout(portfolio)}
         ${Footer()}
     `;

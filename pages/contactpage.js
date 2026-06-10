@@ -4,15 +4,15 @@ export function contactPage() {
         <section id="section-contact">
             <div class="contact-wrapper">
                 <div class="contact-left">
-                    <h2>Contact<span>Me</span></h2>
-                    <p class="contact-subtitle">มีโปรเจกต์ในใจ?<br>Send me message</p>
+                    <img src="/pages/homepagePic/IMG_8611.JPG" alt="Contact Image" class="contact-image"/>
                 </div>
                 <div class="contact-info-box">
+                    <h2>Get in Touch</h2>
                     <form id="contact-form">
-                        <input type="text" id="name" placeholder="ชื่อ" required/>
-                        <input type="email" id="email" placeholder="อีเมล" required/>
-                        <textarea id="message" placeholder="ข้อความ" required></textarea>
-                        <button type="submit">ส่ง</button>
+                        <input type="text" id="name" placeholder="Name" required/>
+                        <input type="email" id="email" placeholder="Email" required/>
+                        <textarea id="message" placeholder="Message" required></textarea>
+                        <button type="submit">Submit</button>
                         <p id="form-status"></p>
                     </form>
                 </div>
