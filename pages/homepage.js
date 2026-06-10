@@ -14,11 +14,7 @@ export async function Homepage(){
         "UI-Designer",
         "Video-editor"
     ];
-    
-    if (!window.typeEffectStarted) {
-        window.typeEffectStarted = true;
-        initTypeEffect();
-    }
+
 
     function initTypeEffect() {
         const textDisplay = document.getElementById('text');

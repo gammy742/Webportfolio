@@ -137,9 +137,7 @@
 }
 
 .myInfoHome p {
-    text-align: center; /* ถ้าหมายถึง font-weight */
-    /* หรือ */
-    font-size: 16px;    /* ถ้าหมายถึง font-size */
+    text-align: center;  /* ถ้าหมายถึง font-size */
 }
 
 .infoText{
