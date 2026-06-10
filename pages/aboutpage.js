@@ -1,6 +1,6 @@
-import igPic from "./aboutpagePic/NagaIG.PNG";
-import fbPic from "./aboutpagePic/NagaFB.jpg";
-import tkPic from "./aboutpagePic/NagaTK.PNG";  
+import igPic from "./aboutpagePic/nagaIG.PNG";
+import fbPic from "./aboutpagePic/nagaFB.jpg";
+import tkPic from "./aboutpagePic/nagaTK.PNG";  
 
 
 export function aboutpage(){
