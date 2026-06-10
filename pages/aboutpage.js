@@ -1,4 +1,4 @@
-import igPic from "./aboutpagePic/nagaIG.PNG";
+import igPic from "./aboutpagePic/NagaIG.PNG";
 import fbPic from "./aboutpagePic/nagaFB.jpg";
 import tkPic from "./aboutpagePic/nagaTK.PNG";  
 
