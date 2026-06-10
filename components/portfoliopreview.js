@@ -1,4 +1,4 @@
-import macbookFrame from "./portfoliopagePic/apple-macbookpro16-front.png";
+import macbookFrame from "../pages/portfoliopagePic/apple-macbookpro16-front.png";
 
 export async function Portfoliopreview(){
     async function fetchData(){
@@ -38,7 +38,7 @@ export async function Portfoliopreview(){
                 <div class="bg-Overlay" style="--bg-url: url('${item.url}')">
                     <div class="item-container">
                         <img src ="${item.url}" alt="${item.title}"/>
-                        <img src=${macbookFrame } alt="macbook-frame" class="maskImg" />
+                        <img src="${macbookFrame}" alt="macbook-frame" class="maskImg" />
                     
                     </div>
                 </div>

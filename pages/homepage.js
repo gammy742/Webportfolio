@@ -1,12 +1,11 @@
-import { Footer } from "../components/footer.js";
-import { aboutpage } from "./aboutpage.js";
+
 import{Portfoliopreview} from "../components/portfoliopreview.js";
-import VoranatePic from 'pages/homepagePic/VoranatePic.webp';
+import VoranatePic from './homepagePic/VoranatePic.webp';
 import VoranatePic3 from "./homepagePic/VoranatePic3.webp";
 import VoranatePic2 from "./homepagePic/VoranatePic2.webp";
 
 import circle1 from "./homepagePic/voranate-SWU.jpg";
-import circle2 from "./homepagePic/IMG_8611.JPG'";
+import circle2 from "./homepagePic/IMG_8611.JPG";
 import circle3 from "./homepagePic/IMG_8613.JPG";
 
 export async function Homepage(){
@@ -15,6 +14,11 @@ export async function Homepage(){
         "UI-Designer",
         "Video-editor"
     ];
+    
+    if (!window.typeEffectStarted) {
+        window.typeEffectStarted = true;
+        initTypeEffect();
+    }
 
     function initTypeEffect() {
         const textDisplay = document.getElementById('text');
@@ -46,7 +50,7 @@ export async function Homepage(){
     
     const images={
         
-       largePic:{src: VoranatePic3,alt:"voranate-large-picture",class:"large"},
+       largePic:{src:VoranatePic3,alt:"voranate-large-picture",class:"large"},
        smallPic1:{src:VoranatePic2,alt:"voranate-small1-picture",class:"small1"},
        smallPic2:{src:VoranatePic,alt:"voranate-small2-picture",class:"small2"},
     };
