@@ -1,4 +1,4 @@
-import { Portfoliopreview } from "../components/portfoliopreview.js";
+
 import VoranatePic from './homepagePic/VoranatePic.webp';
 import VoranatePic3 from "./homepagePic/VoranatePic3.webp";
 import VoranatePic2 from "./homepagePic/VoranatePic2.webp";
@@ -57,8 +57,6 @@ export async function Homepage() {
         </div>
     `).join('');
 
-    const previewHTML = await Portfoliopreview();
-
     return `
         <section id="section-home">
             <div class="container">
@@ -94,7 +92,5 @@ export async function Homepage() {
                 </div>
             </div>
         </section>
-
-        ${previewHTML}
     `;
 }
