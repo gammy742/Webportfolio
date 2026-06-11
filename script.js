@@ -1,4 +1,4 @@
-import{Homepage} from "./pages/homepage.js"
+import { Homepage, initHomepage } from "./pages/homepage.js";
 import{Navbar,initNavbar } from "./components/navbar.js"
 import { aboutpage } from "./pages/aboutpage.js";
 import { carouselButton } from  "./helpers/carouselButton.js";
@@ -56,6 +56,11 @@ async function renderPage(page){
     } else {
         // ถ้าเป็น String → ใช้ innerHTML
         pageDiv.innerHTML = component;
+    }
+
+      // ✅ init homepage type effect หลัง inject HTML
+    if (page === "home") {
+        initHomepage();
     }
 
     // ✅ แทนด้วย
