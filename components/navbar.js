@@ -1,9 +1,9 @@
 export function Navbar(currentPage){
     const links = [
-        {page:"home", path:"/", label:"Home" ,icon:"fa fa-home"},
-        {page:"about", path:"/about", label:"About" ,icon:"fa fa-user"},
-        {page:"portfolio", path:"/portfolio", label:"Portfolio",icon:"fa fa-envelope"},
-        {page:"contact", path:"/contact", label:"Contact",icon:"fa fa-user"}
+        {page:"home", path:"/", label:"Home" ,icon:"ic:round-home"},
+        {page:"about", path:"/about", label:"About" ,icon:"streamline-logos:about-me-logo-block"},
+        {page:"portfolio", path:"/portfolio", label:"Portfolio",icon:"zondicons:portfolio"},
+        {page:"contact", path:"/contact", label:"Contact",icon:"mdi:contact"}
     ];
     
     return `
@@ -16,7 +16,7 @@ export function Navbar(currentPage){
                             data-page="${link.page}"
                             class="${currentPage === link.page ? "active":""}"
                         >
-                           <i class ="${link.icon}"></i>
+                           <iconify-icon icon="${link.icon}"class="nav-icon"></iconify-icon>
                            <span class="label">${link.label}</span>
                         </a>
                     </li>

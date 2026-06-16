@@ -1,8 +1,16 @@
 {
   "dependencies": {
+    "@iconify-solid/carbon": "^1.0.6",
+    "@iconify-solid/clarity": "^1.0.2",
+    "@iconify-solid/ix": "^1.0.2",
+    "@iconify-solid/streamline-sharp": "^1.0.2",
+    "@vitejs/plugin-react": "^6.0.2",
     "dotenv": "^17.4.2"
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.485",
+    "@iconify/react": "^6.0.2",
+    "@iconify/utils": "^3.1.3",
     "vite": "^8.0.12"
   },
   "scripts": {
